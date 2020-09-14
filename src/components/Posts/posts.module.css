@@ -1,0 +1,21 @@
+.employee {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 60%;
+  margin-bottom: 20px;
+}
+.employee td,
+.employee th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.employee th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4caf50;
+  color: white;
+  text-transform: uppercase;
+}
