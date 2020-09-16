@@ -49,6 +49,16 @@ const App = () => {
   const indexofFirstPost = indexofLastPost - dataPerPage;
   const currentPosts = posts.slice(indexofFirstPost, indexofLastPost);
 
+  const onFirstName = (e) => {
+    e.preventDefault();
+    setFirstName(e.target.value);
+  };
+  const onSave = (e) => {
+    console.log("server info", posts.length);
+    setPosts(...posts, firstName);
+    console.log("server info 2", posts.length);
+  };
+
   // moving among pages
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   //modal
@@ -57,6 +67,7 @@ const App = () => {
   const openModal = () => {
     modalRef.current.openModal();
   };
+
   return (
     <div className={style.main}>
       <h1 className="text-primary mb-3">My Table</h1>
@@ -89,7 +100,7 @@ const App = () => {
           <label>firstName</label>
           <br />
 
-          <input type="text" onChange={() => setFirstName.value} />
+          <input type="text" onChange={onFirstName} />
           <br />
           <label>lastName</label>
           <br />
@@ -116,7 +127,7 @@ const App = () => {
           >
             Close
           </button>
-          <button type="button" class="btn btn-success">
+          <button type="button" class="btn btn-success" onClick={onSave}>
             Save
           </button>
         </div>
