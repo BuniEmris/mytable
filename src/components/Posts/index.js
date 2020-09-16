@@ -4,41 +4,34 @@ const Posts = ({ posts, loading }) => {
   if (loading) {
     return <h2>Loading...</h2>;
   }
-  const RenderData = posts.map((post) => {
-    const {
-      id,
-      firstName,
-      lastName,
-      email,
-      phone,
 
-      description,
-    } = post;
-    return (
-      <tr key={post.id}>
-        <td>{id}</td>
-        <td>{firstName}</td>
-        <td>{lastName}</td>
-        <td>{email}</td>
-        <td>{phone}</td>
-
-        <td>{description}</td>
-      </tr>
-    );
-  });
   return (
-    <table className={style.employee}>
-      <tr>
-        <th>ID</th>
-        <th>firstName</th>
-        <th>lastName</th>
-        <th>email</th>
-        <th>phone</th>
+    <div className={style.employee}>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>firstName</th>
+          <th>lastName</th>
+          <th>email</th>
+          <th>phone</th>
 
-        <th>description</th>
-      </tr>
-      <tbody>{RenderData}</tbody>
-    </table>
+          <th>description</th>
+        </tr>
+        {posts.map((item) => (
+          <tbody key={item.id}>
+            <tr>
+              <td>{item.id}</td>
+              <td>{item.firstName}</td>
+              <td>{item.lastName}</td>
+              <td>{item.email}</td>
+              <td>{item.phone}</td>
+
+              <td>{item.description}</td>
+            </tr>
+          </tbody>
+        ))}
+      </table>
+    </div>
   );
 };
 
